@@ -12,11 +12,31 @@
           "codelist": "originFoundingSource.csv",
           "openCodelist": false,
         },
-        "classifications" : {"type" : "string"},
-        "level" : { "type": "number" },
-        "levelLabel" : {"type" : "string"},
-        "id" : {"type" : "string"},
-        "description" : {"type" : "string"},
+        "classifications" : {
+          "type" : "string",
+          "title" : "classifications",
+          "description" : "Open codelist that allows you to choose a budget clasification.",
+        },
+        "level" : {
+          "type": "number",
+          "title" : "Level",
+          "description" : "ID to identify the hierarchy level for the concept inside a classification."
+        },
+        "levelLabel" : {
+          "type" : "string",
+          "title" : "level label",
+          "description" : "Name of the concept."
+        },
+        "id" : {
+          "type" : "string",
+          "label" : "ID",
+          "description" : "ID to identify a specific value of the origin concept."
+        },
+        "description" : {
+          "type" : "string",
+          "label" : "description",
+          "description" : "Descripction of the specific value of the concept."
+        },
         "Measures" : {
           "type": "array",
           "items" : { "$ref": "#/definitions/measure" },
@@ -28,7 +48,10 @@
     "measure" : {
       "type" : "object",
       "properties" : {
-        "id" : {"type" : "string"},
+        "id" : {
+          "type" : "string",
+          "description" : "ID to identify the specific accruing moment in which the budget's value will be expressed.",
+        },
         "value": { "$ref": "#/definitions/Value" }
       }
     },
