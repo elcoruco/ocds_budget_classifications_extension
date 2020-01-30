@@ -5,7 +5,13 @@
     "budgetClassification" : {
       "type" : "object",
       "properties" : {
-        "origin" : {"type" : "string"},
+        "origin" : {
+          "type" : ["string", "null"],
+          "title": "origin of funding source",
+          "description": "Codelist that allows you to choose an origin of the monetary funding.",
+          "codelist": "originFoundingSource.csv",
+          "openCodelist": false,
+        },
         "classifications" : {"type" : "string"},
         "level" : { "type": "number" },
         "levelLabel" : {"type" : "string"},
