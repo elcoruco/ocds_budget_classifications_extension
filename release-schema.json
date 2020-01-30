@@ -1,4 +1,42 @@
 { 
   "$schema": "http://json-schema.org/schema#",
-  "$id": "http://yourdomain.com/schemas/myschema.json"
+  "$id": "https://github.com/elcoruco/ocds_budget_classifications_extension/blob/master/release-schema.json",
+  "definitions" : {
+    "budgetClassification" : {
+      "type" : "object",
+      "properties" : {
+        "origin" : {"type" : "string"},
+        "classifications" : {"type" : "string"},
+        "level" : { "type": "number" },
+        "levelLabel" : {"type" : "string"},
+        "id" : {"type" : "string"},
+        "description" : {"type" : "string"},
+        "Measures" : {
+          "type": "array",
+          "items" : { "$ref": "#/definitions/measure" },
+          "default" : []
+        }
+      }
+    },
+    
+    "measure" : {
+      "type" : "object",
+      "properties" : {
+        "id" : {"type" : "string"},
+        "value": { "$ref": "#/definitions/Value" }
+      }
+    },
+    
+    "Value" : {
+      "type" : "object",
+      "properties" : {
+        "amount" : { "type": "number" },
+        "currency" : { "enum": [ "MXN", "USD" ] }
+      }
+    }
+  },
+  
+  "type": "array",
+  "items" : { "$ref": "#/definitions/budgetClassification" },
+  "default" : []
 }
